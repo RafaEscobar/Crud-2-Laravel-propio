@@ -44,7 +44,11 @@
                     <a href="{{route('animes.update', $fila->id)}}" class="font-medium hover:underline">Actualizar</a>
                   </td>
                   <td class="px-6 py-4 border-gray-700 border-x-2 border-y-2 text-center">
-                    <button type="submit">Eliminar</button>
+                    <form action="{{route('animes.destroy', $fila->id)}}" method="POST">
+                      @csrf
+                      @method('delete')
+                      <button type="submit" class="hover:underline">Eliminar</button>
+                    </form>
                   </td>
                   <td class="px-6 py-4 border-gray-700 border-x-2 border-y-2 text-center">
                     <a href="{{route('animes.show', $fila->id)}}" class="font-medium hover:underline">Mostrar</a>

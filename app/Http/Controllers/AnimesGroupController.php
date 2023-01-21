@@ -69,4 +69,10 @@ class AnimesGroupController extends Controller
 
         return redirect()->route('animes');
     }
+
+    public function destroy(Anime $id){
+        $id->delete();
+
+        return redirect()->route('animes');
+    }
 }

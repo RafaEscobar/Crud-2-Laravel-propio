@@ -31,6 +31,9 @@ Route::controller(AnimesGroupController::class)->group(function(){
     Route::get('animes/{id}', 'show')->name('animes.show');
     // Actualizar submit
     Route::put('animes/{id}', 'submit')->name('animes.submit');
+    // Eliminar
+    Route::delete('animes/{id}', 'destroy')->name('animes.destroy');
+
 
 });
 
