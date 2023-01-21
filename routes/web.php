@@ -30,3 +30,5 @@ Route::controller(AnimesGroupController::class)->group(function(){
     // Mostrar registro individual
     Route::get('animes/{id}', 'show')->name('animes.show');
 });
+
+
