@@ -11,3 +11,5 @@ CRUD de animes (no me juzguen si leen esto) con imágenes, Este proyecto será b
 <p align="center"><img src="https://i.postimg.cc/QtxQZ1c3/d.png" width="800" height="450"></p>
 <h4 align="center"> Mostrar </h4>
 <p align="center"><img src="https://i.postimg.cc/wBz5FSv3/c.png" width="800" height="400"></p>
+
+Documentación: [CRUD Documentacion.pdf](https://github.com/RafaEscobar/Crud-2-Laravel-propio/files/10471418/CRUD.Documentacion.pdf)
