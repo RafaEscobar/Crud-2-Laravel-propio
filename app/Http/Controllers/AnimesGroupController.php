@@ -19,7 +19,6 @@ class AnimesGroupController extends Controller
     }
     // Submit de crear
     public function store(Request $request){
-
         $request->validate([
             'nombre' => 'required',
             'capitulos' => 'required',
@@ -38,13 +37,36 @@ class AnimesGroupController extends Controller
         Anime::create($registro);
 
         return redirect()->route('animes');
-    }
+    } 
     // Actualizar registros
     public function update(Anime $id){
         return view('animes/update', compact('id'));
     }
     // Mostrar registro
-    public function show(){
-        return view('animes/show');
+    public function show($id){
+        $registro = Anime::find($id);
+        return view('animes/show', compact('registro'));
+    }
+
+    public function submit(Request $request, Anime $id){
+
+        $request->validate([
+            'nombre' => 'required',
+            'capitulos' => 'required',
+            'file_path' => 'required|image|mimes:jpeg,png,svg|max:1024',
+        ]);
+
+        $registro = $request->all();
+        
+        if($imagen=$request->file('file_path')){
+            $rutaGuardarImg = 'imgs/';
+            $imgRegistro = date('YmdHis'). "." . $imagen->getClientOriginalExtension();
+            $imagen->move($rutaGuardarImg, $imgRegistro);
+            $registro['file_path'] = "$imgRegistro";
+        }
+
+        $id->update($registro);
+
+        return redirect()->route('animes');
     }
 }

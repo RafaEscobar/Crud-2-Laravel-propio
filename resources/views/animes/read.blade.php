@@ -23,6 +23,9 @@
                   <th scope="col" class="px-6 py-3 border border-gray-800 border-x-2 border-y-2">
                       Eliminar
                   </th>
+                  <th scope="col" class="px-6 py-3 border border-gray-800 border-x-2 border-y-2">
+                      Mostrar
+                  </th>
               </tr>
           </thead>
           <tbody>
@@ -38,10 +41,13 @@
                     <img src="/imgs/{{$fila->file_path}}" width="200">
                   </td>
                   <td class="px-6 py-4 border-gray-700 border-x-2 border-y-2 text-center">
-                    <button type="submit">Editar</button>
+                    <a href="{{route('animes.update', $fila->id)}}" class="font-medium hover:underline">Actualizar</a>
                   </td>
                   <td class="px-6 py-4 border-gray-700 border-x-2 border-y-2 text-center">
-                    <button type="submit">Editar</button>
+                    <button type="submit">Eliminar</button>
+                  </td>
+                  <td class="px-6 py-4 border-gray-700 border-x-2 border-y-2 text-center">
+                    <a href="{{route('animes.show', $fila->id)}}" class="font-medium hover:underline">Mostrar</a>
                   </td>
               </tr>
               @endforeach

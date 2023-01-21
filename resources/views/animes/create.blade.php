@@ -18,6 +18,7 @@
                       <label for="capitulos" class=" absolute text-sm dark:text-gray-400 duration-500 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0  peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Número de capitulos</label>
                   </div>
                 </div>
+                {{-- Para imagen --}}
                 <div id="element" style="display:none;">
                     <div class="w-full mb-6">
                         <img id="imgSelect" alt="img" class="w-72 h-48 rounded-full m-auto">
@@ -33,6 +34,7 @@
                         <input name="file_path" id='file_path' type="file" class="hidden" />
                     </label>
                 </div>
+                {{-- Para imagen --}}
                 <div class="w-full flex justify-center mt-4">
                     <button type="submit" class="text-white bg-[#050708] hover:bg-[#050708]/90 focus:ring-4 focus:outline-none focus:ring-[#050708]/50 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:focus:ring-[#050708]/50 dark:hover:bg-[#050708]/30 mr-2 mb-2">
                         Crear registro
@@ -41,31 +43,26 @@
               </form>
         </div>
         <script>
+            const $file_path = document.querySelector("#file_path"),
+            $imgSelect = document.querySelector("#imgSelect");
 
-    const $file_path = document.querySelector("#file_path"),
-    $imgSelect = document.querySelector("#imgSelect");
-
-    // Escuchar cuando cambie
-    $file_path.addEventListener("change", () => {
-      // Los archivos seleccionados, pueden ser muchos o uno
-      const archivos = $file_path.files;
-      // Si no hay archivos salimos de la función y quitamos la imagen
-      if (!archivos || !archivos.length) {
-        $imgSelect.src = "";
-        return;
-      }
-      // Ahora tomamos el primer archivo, el cual vamos a previsualizar
-      const primerArchivo = archivos[0];
-      // Lo convertimos a un objeto de tipo objectURL
-      const objectURL = URL.createObjectURL(primerArchivo);
-      // Y a la fuente de la imagen le ponemos el objectURL
-      $imgSelect.src = objectURL;
-      document.getElementById("element").style.display = "block";
-
-    });
+            // Escuchar cuando cambie
+            $file_path.addEventListener("change", () => {
+              // Los archivos seleccionados, pueden ser muchos o uno
+              const archivos = $file_path.files;
+              // Si no hay archivos salimos de la función y quitamos la imagen
+              if (!archivos || !archivos.length) {
+                $imgSelect.src = "";
+                return;
+              }
+              // Ahora tomamos el primer archivo, el cual vamos a previsualizar
+              const primerArchivo = archivos[0];
+              // Lo convertimos a un objeto de tipo objectURL
+              const objectURL = URL.createObjectURL(primerArchivo);
+              // Y a la fuente de la imagen le ponemos el objectURL
+              $imgSelect.src = objectURL;
+              document.getElementById("element").style.display = "block";
+            });
         </script>
     </div>
 @endsection
-
-
-

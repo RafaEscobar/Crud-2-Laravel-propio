@@ -29,6 +29,9 @@ Route::controller(AnimesGroupController::class)->group(function(){
     Route::get('animes/update/{id}', 'update')->name('animes.update');
     // Mostrar registro individual
     Route::get('animes/{id}', 'show')->name('animes.show');
+    // Actualizar submit
+    Route::put('animes/{id}', 'submit')->name('animes.submit');
+
 });
 
 
